@@ -1,0 +1,359 @@
+    <!-- Profile Modal -->
+    <div id="profile-modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" id="close-profile-modal">&times;</span>
+            <h2>Edit Profile</h2>
+            <div id="profile-update-info" style="margin-bottom:10px;color:#f59e42;font-weight:600;"></div>
+            <form id="profile-form">
+                <label>Name</label>
+                <input type="text" id="profile-name" required />
+                <label>Mobile No</label>
+                <input type="text" id="profile-mobile" required />
+                <label>Email</label>
+                <input type="email" id="profile-email" required disabled />
+                <label>UPI ID</label>
+                <input type="text" id="profile-upi" />
+                <label>Bank Name</label>
+                <input type="text" id="profile-bank" />
+                <label>Account No</label>
+                <input type="text" id="profile-account" />
+                <label>Credit Score</label>
+                <input type="number" id="profile-credit" min="0" max="900" />
+                <button type="submit" class="btn btn-primary" style="margin-top:16px;">Save Changes</button>
+            </form>
+        </div>
+    </div>
+        <!-- Animated Landing Page Section -->
+        <section id="landing-home" class="landing-section">
+            <div class="landing-bg-anim"></div>
+            <div class="landing-content">
+                <div class="logo-hero">
+                    <span class="money-mate-logo">
+                        <svg id="money-mate-logo-svg" width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="27" cy="27" r="26" fill="#3B82F6" class="logo-bg"/>
+                            <path d="M16 32C16 25 27 25 27 18" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
+                            <circle cx="27" cy="18" r="3.5" fill="#22C55E" stroke="#fff" stroke-width="2"/>
+                            <path d="M38 22C38 29 27 29 27 36" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
+                            <circle cx="27" cy="36" r="3.5" fill="#FACC15" stroke="#fff" stroke-width="2"/>
+                        </svg>
+                    </span>
+                    <span class="logo-title">MoneyMate</span>
+                </div>
+                <h1 class="landing-title">Your Smart Financial Partner</h1>
+                <p class="landing-subtitle">MoneyMate helps you borrow, lend, and manage money with confidence.<br>Fast. Secure. Effortless.</p>
+
+                <!-- Flashcards Section -->
+                <div class="flashcards-section">
+                    <div class="flashcard">
+                        <div class="flashcard-icon">💡</div>
+                        <div class="flashcard-title">How It Works</div>
+                        <div class="flashcard-desc">Sign up, choose your role, and start borrowing or lending instantly with a seamless onboarding process.</div>
+                    </div>
+                    <div class="flashcard">
+                        <div class="flashcard-icon">🔔</div>
+                        <div class="flashcard-title">Smart Notifications</div>
+                        <div class="flashcard-desc">Get real-time alerts for repayments, approvals, and offers so you never miss an update.</div>
+                    </div>
+                    <div class="flashcard">
+                        <div class="flashcard-icon">🛡️</div>
+                        <div class="flashcard-title">Your Data is Safe</div>
+                        <div class="flashcard-desc">We use bank-level encryption and strict privacy policies to keep your information secure.</div>
+                    </div>
+                    <div class="flashcard">
+                        <div class="flashcard-icon">🚀</div>
+                        <div class="flashcard-title">Fast Disbursal</div>
+                        <div class="flashcard-desc">Loans are approved and disbursed quickly, so you get funds when you need them most.</div>
+                    </div>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card"><span class="feature-icon">💸</span><h4>Instant Loans</h4><p>Apply and get approved for loans in minutes, not days.</p></div>
+                    <div class="feature-card"><span class="feature-icon">🤝</span><h4>Peer-to-Peer Lending</h4><p>Invest in real people and earn attractive returns.</p></div>
+                    <div class="feature-card"><span class="feature-icon">🔒</span><h4>Secure & Transparent</h4><p>All transactions are encrypted and fully trackable.</p></div>
+                    <div class="feature-card"><span class="feature-icon">📊</span><h4>Smart Dashboard</h4><p>Track your loans, repayments, and investments in one place.</p></div>
+                    <div class="feature-card"><span class="feature-icon">⚡</span><h4>UPI & Bank Integration</h4><p>Seamless payments and withdrawals to your preferred account.</p></div>
+                    <div class="feature-card"><span class="feature-icon">🎁</span><h4>Rewards & Referrals</h4><p>Earn rewards for timely repayments and inviting friends to MoneyMate.</p></div>
+                <!-- Removed dark mode info card -->
+                </div>
+                <div class="ad-section">
+                    <h3>Why MoneyMate?</h3>
+                    <ul>
+                        <li>✔️ No hidden fees, ever.</li>
+                        <li>✔️ Real-time credit score updates.</li>
+                        <li>✔️ 24/7 support for all your financial needs.</li>
+                        <li>✔️ Built for both borrowers and lenders.</li>
+                    </ul>
+                </div>
+                <button class="landing-cta-btn" onclick="document.getElementById('auth-section').scrollIntoView({behavior:'smooth'})">Get Started</button>
+            </div>
+        </section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneyMate - Borrowing & Lending Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>MoneyMate</h2>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <div class="nav-item" id="nav-home">Home</div>
+                <div class="nav-item" id="nav-dashboard">Dashboard</div>
+                
+                <div class="nav-item" id="nav-loans">Loans</div>
+                <div class="nav-item" id="nav-profile">Profile</div>
+                <div class="nav-item" id="nav-logout" style="display: none;">Logout</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Login/Register Section -->
+        <div id="auth-section" class="section active">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <h2>Welcome to MoneyMate</h2>
+                    <p>Your trusted borrowing & lending platform</p>
+                    
+                    <div class="auth-tabs">
+                        <button class="tab-btn active" id="login-tab">Login</button>
+                        <button class="tab-btn" id="register-tab">Register</button>
+                    </div>
+
+                    <!-- Login Form -->
+                    <form id="login-form" class="auth-form">
+                        <div class="form-group">
+                            <input type="email" id="login-email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="login-password" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                        
+                    </form>
+
+                    <!-- Register Form -->
+                    <form id="register-form" class="auth-form" style="display: none;">
+                        <div class="form-group">
+                            <input type="text" id="register-name" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="register-email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="register-password" placeholder="Password" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="register-role" required>
+                                <option value="">Select Role</option>
+                                <option value="borrower">Borrower</option>
+                                <option value="lender">Lender</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Section -->
+    <div id="dashboard-section" class="section" style="display:none;">
+            <div class="dashboard-container">
+                <div class="dashboard-header">
+                    <h2>Dashboard</h2>
+                    <div class="user-info">
+                        <span id="user-name"></span>
+                        <span id="user-role" class="role-badge"></span>
+                    </div>
+                </div>
+
+                <!-- Borrower Dashboard -->
+                <div id="borrower-dashboard" class="dashboard-content" style="display: none;">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>Active Loans</h3>
+                            <p id="borrower-active-loans">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Total Borrowed</h3>
+                            <p id="borrower-total-borrowed">₹0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Pending Repayments</h3>
+                            <p id="borrower-pending-repayments">₹0</p>
+                        </div>
+                    </div>
+
+                    <div class="action-section">
+                        <button class="btn btn-primary" id="request-loan-btn">Request New Loan</button>
+                        <button class="btn btn-secondary" id="view-repayments-btn">View Repayment Schedule</button>
+                    </div>
+
+                    <div class="loans-list">
+                        <h3>My Loans</h3>
+                        <div class="loan-tabs" id="loan-tabs">
+                            <button class="loan-tab-btn active" data-status="all">All</button>
+                            <button class="loan-tab-btn" data-status="active">Active</button>
+                            <button class="loan-tab-btn" data-status="pending">Pending</button>
+                            <button class="loan-tab-btn" data-status="overdue">Overdue</button>
+                            <button class="loan-tab-btn" data-status="completed">Completed</button>
+                            <button class="loan-tab-btn" data-status="requested">Requested</button>
+                            <button class="loan-tab-btn" data-status="approved">Approved</button>
+                        </div>
+                        <div id="borrower-loans"></div>
+                    </div>
+                </div>
+
+                <!-- Lender Dashboard -->
+                <div id="lender-dashboard" class="dashboard-content" style="display: none;">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>Active Investments</h3>
+                            <p id="lender-active-investments">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Total Lent</h3>
+                            <p id="lender-total-lent">₹0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Total Earnings</h3>
+                            <p id="lender-total-earnings">₹0</p>
+                        </div>
+                    </div>
+
+                    <div class="action-section">
+                        <button class="btn btn-primary" id="view-requests-btn">View Loan Requests</button>
+                        
+                    </div>
+
+            <div class="loans-list">
+                <h3>My Investments</h3>
+                <div id="lender-investments"></div>
+            </div>
+            <div class="loans-list">
+                <h3>Available Loan Requests</h3>
+                <div id="lender-requests"></div>
+            </div>
+                </div>
+
+                <!-- Admin Dashboard -->
+                <div id="admin-dashboard" class="dashboard-content" style="display: none;">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>Total Loans</h3>
+                            <p id="admin-total-loans">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Active Loans</h3>
+                            <p id="admin-active-loans">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Defaulted Loans</h3>
+                            <p id="admin-defaulted-loans">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Total Volume</h3>
+                            <p id="admin-total-volume">₹0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Total Users</h3>
+                            <p id="admin-total-users">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Borrowers</h3>
+                            <p id="admin-borrowers">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Lenders</h3>
+                            <p id="admin-lenders">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Default Rate</h3>
+                            <p id="admin-default-rate">0%</p>
+                        </div>
+                    </div>
+
+                    <div class="admin-tables">
+                        <div class="table-section">
+                            <h3>All Loans</h3>
+                            <div id="admin-all-loans"></div>
+                        </div>
+                        <div class="table-section">
+                            <h3>All Users</h3>
+                            <div id="admin-users"></div>
+                        </div>
+                        <div class="table-section">
+                            <h3>Defaulted Loans</h3>
+                            <div id="admin-defaulted-list"></div>
+                        </div>
+                        <div class="table-section">
+                            <h3>Recent Transactions</h3>
+                            <div id="admin-transactions"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loan Request Modal -->
+        <div id="loan-request-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Request New Loan</h2>
+                <form id="loan-request-form">
+                    <div class="form-group">
+                        <label>Loan Amount (Max ₹20,000)</label>
+                        <input type="number" id="loan-amount" min="1000" max="20000" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Duration (Days)</label>
+                        <input type="number" id="loan-duration" min="7" max="365" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Purpose</label>
+                        <textarea id="loan-purpose" placeholder="Describe the purpose of your loan"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Request</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Repayment Schedule Modal -->
+        <div id="repayment-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Repayment Schedule</h2>
+                <div id="repayment-schedule"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Loading Spinner -->
+    <div id="loading" class="loading" style="display: none;">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container"></div>
+
+    <script src="firebase-config.js"></script>
+    <script src="penalty-system.js"></script>
+    <script src="admin-panel.js"></script>
+    <script src="app.js"></script>
+        <!-- Dark mode toggle -->
+        <button id="theme-toggle" style="position:fixed;top:16px;right:16px;z-index:1000;padding:8px 16px;border-radius:6px;border:none;background:#e5e7eb;color:#333;font-weight:600;cursor:pointer;">🌙 Dark Mode</button>
+        <!-- Stripe.js -->
+        <script src="https://js.stripe.com/v3/"></script>
+</body>
+</html>
